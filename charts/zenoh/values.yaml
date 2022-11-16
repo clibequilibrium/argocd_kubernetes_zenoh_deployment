@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   pullPolicy: IfNotPresent
   repository: clibequilibrium/zenoh_deployment
-  version: d040087
+  version: d30f28f
 
 imagePullSecrets: []
 nameOverride: ""
