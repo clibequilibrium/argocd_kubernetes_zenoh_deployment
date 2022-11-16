@@ -33,12 +33,14 @@ spec:
               protocol: TCP
           livenessProbe:
             httpGet:
-              path: /@/router/local
-              port: 8000
+              path: /
+              port: http
+              scheme: TCP
           readinessProbe:
             httpGet:
-              path: /@/router/local
-              port: 8000
+              path: /
+              port: http
+              scheme: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
