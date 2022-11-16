@@ -34,12 +34,12 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: http
+              port: 8000
               scheme: TCP
           readinessProbe:
             httpGet:
               path: /
-              port: http
+              port: 8000
               scheme: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
