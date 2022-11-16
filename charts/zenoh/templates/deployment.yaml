@@ -35,12 +35,12 @@ spec:
             httpGet:
               path: /
               port: http
-              scheme: HTTP
+              scheme: TCP
           readinessProbe:
             httpGet:
               path: /
               port: http
-              scheme: HTTP
+              scheme: TCP
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
