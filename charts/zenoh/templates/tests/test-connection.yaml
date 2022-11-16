@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "{{ include "zenoh.fullname" . }}-test-connection"
+  labels:
+{{ include "zenoh.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": test-success
+spec:
+  containers:
+    - name: wget
+      image: busybox
+      command: ['wget']
+      args:  ['{{ include "zenoh.fullname" . }}:{{ .Values.service.port }}']
+  restartPolicy: Never
