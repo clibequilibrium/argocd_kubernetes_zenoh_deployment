@@ -31,17 +31,14 @@ spec:
             - name: http
               containerPort: 8000
               protocol: TCP
-            - name: discovery
-              containerPort: 7447
-              protocol: TCP
-          livenessProbe:
-            httpGet:
-              path: /@/router/local
-              port: http
-          readinessProbe:
-            httpGet:
-              path: /@/router/local
-              port: http
+          # livenessProbe:
+          #   httpGet:
+          #     path: /@/router/local
+          #     port: http
+          # readinessProbe:
+          #   httpGet:
+          #     path: /@/router/local
+          #     port: http
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
