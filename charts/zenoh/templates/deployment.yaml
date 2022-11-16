@@ -31,9 +31,6 @@ spec:
             - name: http
               containerPort: 8000
               protocol: TCP
-            - name: discovery
-              containerPort: 7447
-              protocol: TCP
           livenessProbe:
             httpGet:
               path: /@/router/local
