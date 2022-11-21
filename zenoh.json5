@@ -54,7 +54,7 @@
             read_only: false,
 
             // strategy on storage closure, either `destroy_bucket` or `do_nothing`
-            on_closure: "destroy_bucket",
+            // on_closure: "destroy_bucket",
 
             private: {
                 // Credentials for interacting with the S3 bucket
