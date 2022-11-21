@@ -8,7 +8,7 @@
             // AWS region to which connect (see https://docs.aws.amazon.com/general/latest/gr/s3.html). 
             // This field is mandatory if you are going to communicate with an AWS S3 server and
             // optional in case you are working with a MinIO S3 server.
-            region: "eu-west-1",
+            // region: "eu-west-1",
 
             // Endpoint where the S3 server is located.
             // This parameter allows you to specify a custom endpoint when working with a MinIO S3 
@@ -16,7 +16,7 @@
             // This field is mandatory if you are working with a MinIO server and optional in case
             // you are working with an AWS S3 server as long as you specified the region, in which
             // case the endpoint will be resolved automatically.
-            url: "https://10.0.0.242:443",
+            url: "https://10.0.0.242",
 
             private: {
                 // Credentials for interacting with the S3 volume. They may differ from the storage
