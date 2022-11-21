@@ -3,12 +3,12 @@
     // Configuration of "storage_manager" plugin:
     storage_manager: {
       volumes: {
-        minio: {
+        s3: {
 
             // AWS region to which connect (see https://docs.aws.amazon.com/general/latest/gr/s3.html). 
             // This field is mandatory if you are going to communicate with an AWS S3 server and
             // optional in case you are working with a MinIO S3 server.
-            // region: "eu-west-1",
+            region: "eu-west-1",
 
             // Endpoint where the S3 server is located.
             // This parameter allows you to specify a custom endpoint when working with a MinIO S3 
@@ -29,18 +29,18 @@
       storages: {
         // Configuration of a "demo" storage using the S3 volume. Each storage is associated to a
         // single S3 bucket.
-        demo: {
+        s3_storage: {
 
           // The key expression this storage will subscribes to
-          key_expr: "demo/example/**",
+          key_expr: "s3/example/*",
 
           // this prefix will be stripped from the received key when converting to database key.
           // i.e.: "demo/example/a/b" will be stored as "a/b"
-          strip_prefix: "demo/example",
+          strip_prefix: "s3/example",
 
           volume: {
             // Id of the volume this storage is associated to
-            id: "minio",
+            id: "s3",
 
             // Bucket to which this storage is associated to
             bucket: "zenoh-bucket",
