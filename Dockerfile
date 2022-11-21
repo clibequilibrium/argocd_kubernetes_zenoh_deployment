@@ -3,7 +3,8 @@ FROM eclipse/zenoh:0.6.0-beta.1
 
 COPY libzbackend_s3.so .
 COPY zenoh.json5 .
-COPY s3-entrypoint.sh .
 
-RUN chmod +x ./s3_entrypoint.sh
-ENTRYPOINT ["./s3_entrypoint.sh"]
+RUN echo '#!/bin/ash' > /entrypoint.sh
+RUN echo 'echo " * Starting: /zenohd with S3 storage $*"' >> /entrypoint.sh
+RUN echo 'exec /zenohd $*' >> /entrypoint.sh
+RUN chmod +x /entrypoint.sh
