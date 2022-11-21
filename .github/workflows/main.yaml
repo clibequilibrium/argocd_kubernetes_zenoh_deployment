@@ -20,7 +20,6 @@ jobs:
         with:
           name: "zenoh.json5"
           json: ${{ secrets.ZENOH_CONFIG_JSON }}
-          dir: '.'
 
       - name: docker login
         env:
