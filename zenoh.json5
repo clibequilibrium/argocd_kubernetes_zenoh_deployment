@@ -1,71 +1,30 @@
 {
   plugins: {
-    // Configuration of "storage_manager" plugin:
+    // configuration of "storages" plugin:
     storage_manager: {
       volumes: {
-        s3: {
-
-            // AWS region to which connect (see https://docs.aws.amazon.com/general/latest/gr/s3.html). 
-            // This field is mandatory if you are going to communicate with an AWS S3 server and
-            // optional in case you are working with a MinIO S3 server.
-            region: "eu-west-1",
-
-            // Endpoint where the S3 server is located.
-            // This parameter allows you to specify a custom endpoint when working with a MinIO S3 
-            // server.
-            // This field is mandatory if you are working with a MinIO server and optional in case
-            // you are working with an AWS S3 server as long as you specified the region, in which
-            // case the endpoint will be resolved automatically.
-            url: "https://10.0.0.242",
-
-            private: {
-                // Credentials for interacting with the S3 volume. They may differ from the storage
-                // credentials.
-                access_key: "Ls7hRKndvyL3SerQ",
-                secret_key: "24ZHyh99k0CiGrzuUulhuJSRzFGV2SI3",
-            }
-        }
+        // configuration of a "rocksdb" volume (the "zbackend_rocksdb" backend library will be loaded at startup)
+        rocksdb: {}
       },
       storages: {
-        // Configuration of a "demo" storage using the S3 volume. Each storage is associated to a
-        // single S3 bucket.
-        s3_storage: {
-
-          // The key expression this storage will subscribes to
-          key_expr: "s3/example/*",
-
+        // configuration of a "demo" storage using the "rocksdb" volume
+        demo: {
+          // the key expression this storage will subscribes to
+          key_expr: "demo/example/**",
           // this prefix will be stripped from the received key when converting to database key.
           // i.e.: "demo/example/a/b" will be stored as "a/b"
-          strip_prefix: "s3/example",
-
+          strip_prefix: "demo/example",
           volume: {
-            // Id of the volume this storage is associated to
-            id: "s3",
-
-            // Bucket to which this storage is associated to
-            bucket: "zenoh-bucket",
-
-            // The storage attempts to create the bucket, but if the bucket already exists and is
-            // owned by you, then with 'reuse_bucket' you can associate that preexisting bucket to
-            // the storage, otherwise it will fail.
-            reuse_bucket: true,
-
-            // If the storage is read only, it will only handle GET requests
-            read_only: false,
-
-            // strategy on storage closure, either `destroy_bucket` or `do_nothing`
-            on_closure: "destroy_bucket",
-
-            private: {
-                // Credentials for interacting with the S3 bucket
-                access_key: "Ls7hRKndvyL3SerQ",
-                secret_key: "24ZHyh99k0CiGrzuUulhuJSRzFGV2SI3",
-            }
+            id: "rocksdb",
+            // the RocksDB database will be stored in this directory (relative to ${ZBACKEND_ROCKSDB_ROOT})
+            dir: "example",
+            // create the RocksDB database if not already existing
+            create_db: true
           }
-        },
+        }
       }
     },
     // Optionally, add the REST plugin
     rest: { http_port: 8000 }
-  },
+  }
 }
