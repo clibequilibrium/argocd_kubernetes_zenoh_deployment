@@ -35,6 +35,8 @@ jobs:
           REPOSITORY: zenoh_deployment
         run: |
           # Build a docker container and push it to ECR
+          echo "Config value:"
+          cat zenoh.json5
           git_hash=$(git rev-parse --short HEAD)
           docker build -t $REGISTRY/$REPOSITORY:$git_hash .
           echo "Pushing image to DockerHub..."
