@@ -7,7 +7,7 @@ replicaCount: 1
 image:
   pullPolicy: IfNotPresent
   repository: clibequilibrium/zenoh_deployment
-  version: 96628e6 # TODO change to semantic version
+  version: 0b5aeb6 # TODO change to semantic version
 
 imagePullSecrets: []
 nameOverride: ""
