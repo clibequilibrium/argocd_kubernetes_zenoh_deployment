@@ -16,7 +16,7 @@
             // This field is mandatory if you are working with a MinIO server and optional in case
             // you are working with an AWS S3 server as long as you specified the region, in which
             // case the endpoint will be resolved automatically.
-            url: "https://10.0.0.242",
+            url: "http://10.0.0.243:9443",
 
             private: {
                 // Credentials for interacting with the S3 volume. They may differ from the storage
