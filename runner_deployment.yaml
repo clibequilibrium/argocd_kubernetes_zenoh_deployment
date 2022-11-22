@@ -2,13 +2,11 @@
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: RunnerDeployment
 metadata:
-  name: k3s-runners
+  name: equilibrium-runner
   namespace: actions
 spec:
+  replicas: 1
   template:
     spec:
       repository: clibequilibrium/argocd_zenoh_docker_deployment
-
-      labels:
-        - my-custom-runner
       env: []
