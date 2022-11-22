@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Building and Pushing the Image
-    runs-on: my-custom-runner
+    runs-on: self-hosted
 
     steps:
       - name: Checkout
