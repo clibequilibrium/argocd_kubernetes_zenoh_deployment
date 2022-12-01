@@ -21,8 +21,8 @@
             private: {
                 // Credentials for interacting with the S3 volume. They may differ from the storage
                 // credentials.
-                access_key: "1lxlaRvnngDmiL9T",
-                secret_key: "1NQBTREyswHQms10noeQ86Jh3YFApUrq",
+                access_key: "3j2KtFeL6atftQVa",
+                secret_key: "NLorAgAIzVC81axoBnmWnBSLozpsLFd2",
             }
         }
       },
@@ -58,8 +58,8 @@
 
             private: {
                 // Credentials for interacting with the S3 bucket
-                access_key: "1lxlaRvnngDmiL9T",
-                secret_key: "1NQBTREyswHQms10noeQ86Jh3YFApUrq",
+                access_key: "3j2KtFeL6atftQVa",
+                secret_key: "NLorAgAIzVC81axoBnmWnBSLozpsLFd2",
             }
           }
         },
